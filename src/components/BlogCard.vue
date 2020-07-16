@@ -42,6 +42,7 @@
 <style scoped>
     .blog-card {
         width: 100%;
+        background-color: white;
     }
 
     .blog-card img {

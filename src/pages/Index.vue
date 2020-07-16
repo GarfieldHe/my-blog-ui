@@ -14,7 +14,7 @@
             </div>
         </div>
         <div id="blog-hot2">
-            <div class="blog-card-wapper" v-for="item in blogCardList" >
+            <div class="blog-card-wapper" v-for="item in blogCardList">
                 <blog-card class="hot-inner" :key="item.linkUrl"
                            :title="item.title" :time="item.time" :introduce="item.introduction" :imgUrl="item.imgUrl"
                            :linkUrl="item.id" :photoId="item.photoId" :fileInnerClass="item.fileInnerClass"/>
@@ -30,10 +30,10 @@
                 <p id="blog-sign-first">某段话</p>
                 <p>另外一段话</p>
             </div>
-            <div id="blog-footer">
-                <p>相关连接</p>
-                <my-footer></my-footer>
-            </div>
+            <!--<div id="blog-footer">-->
+            <!--<p>相关连接</p>-->
+            <my-footer></my-footer>
+            <!--</div>-->
         </div>
         <go-top/>
     </div>
@@ -60,25 +60,42 @@
             // console.log(this.$store.count)
             // this.$store.commit('increment')
             // console.log(this.$store.count)
+            window.addEventListener('scroll', this.handleScroll, true)
             this.hotBlog()
         },
         methods: {
-            hotBlog() {
-                this.$http.anonymous().get('/file/fileList/hot?fileType=blog&fileClass=html').then(res => {
-                    this.blogCardList = res
-                })
-            },
-            goto(path) {
-                console.log(path)
-                this.$router.push(path)
-            },
-            scrollTo() {
-                window.scrollTo({
-                    top: this.$refs.acp.getBoundingClientRect().top,
-                    behavior: "smooth"
-                })
+            handleScroll() {
+                let clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+                // 设备/屏幕高度
+                let scrollObj = document.getElementById(div); // 滚动区域
+                let scrollTop = scrollObj.scrollTop; // div 到头部的距离
+                let scrollHeight = scrollObj.scrollHeight; // 滚动条的总高度
+                //滚动条到底部的条件
+                if (scrollTop + clientHeight == scrollHeight) {
+                    // div 到头部的距离 + 屏幕高度 = 可滚动的总高度
+                }
             }
+        },
+        // todo 触发位置时间
+        destroyed() {
+            window.removeEventListener('scroll', this.handleScroll);   //  离开页面清除（移除）滚轮滚动事件
+        },
+        hotBlog() {
+            this.$http.anonymous().get('/file/fileList/hot?fileType=blog&fileClass=html').then(res => {
+                this.blogCardList = res
+            })
+        },
+        goto(path) {
+            console.log(path)
+            this.$router.push(path)
+        },
+        scrollTo() {
+            window.scrollTo({
+                top: this.$refs.acp.getBoundingClientRect().top,
+                behavior: "smooth"
+            })
         }
+    }
     }
 </script>
 
@@ -96,6 +113,7 @@
         background-repeat: no-repeat;
         background-size: 100%;
     }
+
     @media (max-width: 1186px) {
         #backImg1 {
             background-size: 1186px 668.5px; /* Force the image to its minimum width */
@@ -168,8 +186,9 @@
         display: flex;
         flex-flow: row wrap;
         align-content: space-around;
-        padding: 0px 5% 30px 5% ;
+        padding: 0px 5% 30px 5%;
     }
+
     .blog-card-wapper {
         flex: 0 0 28.33%;
         margin: 1.5% 0.5%;

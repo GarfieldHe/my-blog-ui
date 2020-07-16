@@ -53,8 +53,10 @@
 <style scoped>
     .blog-list-card {
         margin: 20px 0 10px 0;
-        padding: 20px 0;
+        padding: 25px 15px;
         border: 1px solid lightgrey;
+        border-radius: 5px;
+        background-color: white;
         border-radius: 5px;
     }
     .blog-list-wapper {
@@ -70,10 +72,15 @@
         vertical-align:top;
         margin-top: 100px;
     }
-    .blog-list {
-        background-image: url("../../static/img/img4.jpg");
+    #blog-list {
+        background-image: url("../../static/img/img3.jpg");
         background-size: 100%;
         background-repeat: no-repeat;
         background-attachment: fixed;
+    }
+    @media (max-width: 1186px) {
+        #blog-list {
+            background-size: 1186px 668.5px; /* Force the image to its minimum width */
+        }
     }
 </style>

@@ -57,6 +57,13 @@
         height: 220px;
         margin: 20px 0 10px 0;
     }
+    /*.blog-list-card {*/
+        /*margin: 20px 0 10px 0;*/
+        /*padding: 25px 15px;*/
+        /*border: 1px solid lightgrey;*/
+        /*border-radius: 5px;*/
+        /*background-color: white;*/
+    /*}*/
 
     .blog-list-wapper {
         width: 60vw;
@@ -64,6 +71,7 @@
         min-height: 60vh;
         display: inline-block;
         vertical-align: top;
+        vertical-align:top;
     }
 
     .blog-title-search-wapper {
@@ -71,12 +79,17 @@
         display: inline-block;
         vertical-align: top;
         margin-top: 100px;
+        vertical-align:top;
     }
-
-    .blog-list {
-        background-image: url("../../static/img/img4.jpg");
+    #blog-list {
+        background-image: url("../../static/img/img3.jpg");
         background-size: 100%;
         background-repeat: no-repeat;
         background-attachment: fixed;
+    }
+    @media (max-width: 1186px) {
+        #blog-list {
+            background-size: 1186px 668.5px; /* Force the image to its minimum width */
+        }
     }
 </style>

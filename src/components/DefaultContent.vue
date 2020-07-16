@@ -18,9 +18,15 @@
 
 <style scoped>
     #default-content {
-        height: 100%;
         width: 100%;
         color: #DCDCDC;
         font-size: 46px;
+        background-color: white;
+        min-height: 40vh;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+    #default-content p {
+        padding: 20px 0 0 50px;
     }
 </style>

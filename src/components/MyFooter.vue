@@ -14,7 +14,9 @@
                 <img  src="../assets/github.png">
             </div>
         </div>
-        <p class="footer-content">khakshdfjalksdfjaslkdfhkajsdf</p>
+        <p class="footer-content">Copyright © 2018-2020 燕十三 All Rights Reserved V.1.0.0 备案号:
+            <span>蜀ICP备18008600号</span>
+        </p>
     </div>
 </template>
 
@@ -76,7 +78,7 @@
     }
 
     .footer-content {
-        color: white;
+        color: lightgrey;
         font-size: 14px;
         width: 100%;
         display: block;
@@ -85,7 +87,12 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        margin: 6px 0;
+        padding-top: 14px;
+    }
+    .footer-content span{
+        color: white;
+        margin-left: 5px;
+        font-weight: 400;
     }
     .footer-button {
         width: 20px;

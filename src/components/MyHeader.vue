@@ -55,6 +55,7 @@
     #my-header {
         display: flex;
         height: 60px;
+        background-color: white;
     }
     #header-logo {
         width: 10%;
